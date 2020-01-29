@@ -1,4 +1,4 @@
-import { User } from './../entity/user.entity';
+import { Show } from '../entity/show.entity';
 import {EntityRepository, Repository} from 'typeorm';
 /**
  * Cette classe est un repository
@@ -7,7 +7,7 @@ import {EntityRepository, Repository} from 'typeorm';
  * Il s'agit seulement de la couche de récupération des données (requete sql)
  */
 
-@EntityRepository(User)
-export class UserRepository extends Repository<User> {
+@EntityRepository(Show)
+export class ShowRepository extends Repository<Show> {
 
 }
