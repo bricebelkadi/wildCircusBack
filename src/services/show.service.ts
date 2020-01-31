@@ -10,5 +10,15 @@ export class ShowService extends AbstractService{
 
     protected repository = getCustomRepository(ShowRepository);
 
+    getAllWithRelations() {
+        return this.repository.find({relations: ['circus', 'performances', 'performances.specialty']})
+    }
+
+    async update(idElement: number, element: any) {
+        await this.repository.update(idElement, element);
+        return this.repository.findOne(idElement, {relations: ['circus', 'performances', 'performances.specialty']});
+    }
+
+
 
 }

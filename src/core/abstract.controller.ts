@@ -34,8 +34,7 @@ export const commonController = (service: AbstractService, commonRouter = Router
     commonRouter.put('/:id', async (req: Request, res: Response) => {
         const id = parseInt(req.params.id, 10);
         const formData = req.body;
-        await service.update(id, formData);
-        res.send(`L'utilisateur ${id} a bien été modifié`);
+        res.send(await service.update(id, formData));
 
     });
 

@@ -1,7 +1,6 @@
 import { Column, Entity, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 import { Ticket } from './ticket.entity';
 import { Show } from './show.entity';
-import { Performance } from './performance.entity';
 
 @Entity('circus')
 export class Circus {
@@ -18,12 +17,13 @@ export class Circus {
     @Column({type: 'decimal', nullable: true})
     Y!: string;
 
+    @Column({type: 'varchar', length: 255, nullable: true})
+    picture!: string;
+
     @OneToMany(type => Ticket, ticket => ticket.circus)
     tickets!: Ticket[];
 
     @OneToMany(type => Show, show => show.circus)
     shows!: Show[];
 
-    @OneToMany(type => Performance, performance => performance.circus)
-    performances!: Performance[];
 }

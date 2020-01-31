@@ -1,6 +1,6 @@
 import { Application, Router } from 'express';
 import { commonController } from '../core/abstract.controller';
-import { PerformanceService } from '../services/performance.service';
+import { ArtistService } from '../services/artist.service';
 
 /**
  * Ce controller vous servira de modèle pour construire vos différent controller
@@ -11,7 +11,7 @@ import { PerformanceService } from '../services/performance.service';
  */
 export const ArtistController = (app: Application) => {
 
-    const service = new PerformanceService();
+    const service = new ArtistService();
 
     let router: Router = Router();
     router = commonController(service, router);

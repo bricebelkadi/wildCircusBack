@@ -20,7 +20,7 @@ export class Artist {
     @ManyToOne(type => Specialty, specialty => specialty.artists)
     specialty!: Specialty;
 
-    @ManyToMany(type => Performance, performance => performance.artists)
+    @ManyToMany(type => Performance, performance => performance.artists, {cascade: true})
     @JoinTable()
     performances!: Performance[];
 }

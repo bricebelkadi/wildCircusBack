@@ -8,12 +8,15 @@ export class Show {
     @PrimaryGeneratedColumn({ type: 'int'})
     id!: number;
 
-    @Column({type: 'timestamp', nullable: false})
+    @Column({type: 'timestamp', nullable: true})
+    date!: Date;
+
+    @Column({type: 'varchar', length: 255, nullable: false, default: 'Show'})
     title!: string;
 
     @ManyToOne(type => Circus, circus => circus.shows)
     circus!: Circus;
 
-    @OneToMany(type => Performance, performance => performance.show)
+    @OneToMany(type => Performance, performance => performance.show, {cascade: true})
     performances!: Performance[];
 }

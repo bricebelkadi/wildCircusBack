@@ -11,8 +11,11 @@ export class Specialty {
     @Column({type: 'varchar', length: 25, nullable: false})
     title!: string;
 
-    @Column({type: 'varchar', length: 255, nullable: false})
+    @Column({type: 'text', nullable: false})
     description!: string;
+
+    @Column({type: 'varchar', length: 255, nullable: true})
+    picture!: string;
 
     @OneToMany(type => Artist, artist => artist.specialty)
     artists!: Artist[];

@@ -23,7 +23,8 @@ export abstract class AbstractService {
     }
 
     async update(idElement: any, element: ObjectLiteral) {
-        return await this.repository.update(idElement, element);
+        await this.repository.update(idElement, element);
+        return this.repository.findOne(idElement);
     }
 
     async delete(id: any) {
