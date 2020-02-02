@@ -32,13 +32,17 @@ export const PerformanceController = (app: Application) => {
         const id = parseInt(req.params.id, 10);
         res.send(await service.getPerformanceOfShow(id));
     });
+    
+    router.put('/artist', async (req: Request, res: Response) => {
+        const formData = req.body;
+        res.send(await service.updateArtist(formData))
+    });
 
     router.put('/:id', async (req: Request, res: Response) => {
         const id = parseInt(req.params.id, 10);
         const formData = req.body;
         res.send(await service.update(id, formData));
     });
-
 
 
 

@@ -1,4 +1,4 @@
-import { Column, Entity, PrimaryGeneratedColumn, ManyToOne, ManyToMany, JoinTable } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn, ManyToOne, ManyToMany } from 'typeorm';
 import { Specialty } from './specialty.entity';
 import { Performance } from './performance.entity';
 
@@ -20,7 +20,6 @@ export class Artist {
     @ManyToOne(type => Specialty, specialty => specialty.artists)
     specialty!: Specialty;
 
-    @ManyToMany(type => Performance, performance => performance.artists, {cascade: true})
-    @JoinTable()
+    @ManyToMany(type => Performance, performance => performance.artists)
     performances!: Performance[];
 }
